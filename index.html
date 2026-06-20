@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MatBørsen – Lag matplan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="landing.html" class="nav-logo">
+      <img src="logo.svg" alt="MatBørsen logo" class="nav-logomark" />
+      MatBørsen
+    </a>
+    <div class="nav-links">
+      <a href="landing.html#modi">Modi</a>
+      <a href="landing.html#hvordan">Hvordan det fungerer</a>
+    </div>
+    <span class="nav-badge">Lag matplan</span>
+  </nav>
+
+  <div class="app-hero">
+    <div class="app-hero-inner">
+      <div class="app-hero-label">Matplanlegger</div>
+      <h1>Lag ukens matplan</h1>
+      <p>Velg butikker, sett mål og få en komplett matplan basert på ukens tilbud.</p>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Modus -->
+    <section class="card" id="step-mode">
+      <div class="card-label">Modus</div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" id="modebudget" onclick="setMode('budget')">
+          <strong class="mode-label">Budsjett</strong>
+          <small class="mode-desc">Balansert og billigst mulig</small>
+        </button>
+        <button class="mode-btn" id="modeprotein" onclick="setMode('protein')">
+          <strong class="mode-label">Protein-fokus</strong>
+          <small class="mode-desc">Treff proteinmålet ditt</small>
+        </button>
+      </div>
+    </section>
+
+    <!-- Treningsprofil -->
+    <section class="card hidden" id="step-protein">
+      <div class="card-label">Treningsprofil</div>
+      <div class="prefs">
+        <label>
+          Kroppsvekt (kg)
+          <div class="num-input">
+            <button class="num-btn" onclick="changeVal('weight', -1)">−</button>
+            <input type="number" id="weight" value="75" min="40" max="200" />
+            <button class="num-btn" onclick="changeVal('weight', 1)">+</button>
+          </div>
+        </label>
+        <label>
+          Treningsnivå
+          <select id="trainingLevel">
+            <option value="light">Lett (1–2 dager/uke)</option>
+            <option value="moderate" selected>Moderat (3–4 dager/uke)</option>
+            <option value="heavy">Tung (5+ dager/uke)</option>
+          </select>
+        </label>
+        <label>
+          Mål
+          <select id="goal">
+            <option value="maintain">Vedlikeholde</option>
+            <option value="build" selected>Bygge muskler</option>
+            <option value="lose">Gå ned i vekt</option>
+          </select>
+        </label>
+      </div>
+      <div class="protein-result hidden" id="proteinResult"></div>
+    </section>
+
+    <!-- Butikker -->
+    <section class="card" id="step-stores">
+      <div class="card-label">Butikker</div>
+      <p class="card-hint">Velg én eller flere – jo fler, jo billigere blir planen</p>
+      <div class="store-grid" id="storeGrid"></div>
+    </section>
+
+    <!-- Preferanser -->
+    <section class="card" id="step-prefs">
+      <div class="card-label">Tilpass</div>
+      <div class="prefs">
+        <label>
+          Antall personer
+          <div class="num-input">
+            <button class="num-btn" onclick="changeVal('persons', -1)">−</button>
+            <input type="number" id="persons" value="1" min="1" max="10" />
+            <button class="num-btn" onclick="changeVal('persons', 1)">+</button>
+          </div>
+        </label>
+        <label>
+          Middager per uke
+          <div class="num-input">
+            <button class="num-btn" onclick="changeVal('dinners', -1)">−</button>
+            <input type="number" id="dinners" value="5" min="1" max="7" />
+            <button class="num-btn" onclick="changeVal('dinners', 1)">+</button>
+          </div>
+        </label>
+        <label>
+          Maks budsjett (kr/uke)
+          <div class="num-input">
+            <button class="num-btn" onclick="changeVal('budget', -50)">−</button>
+            <input type="number" id="budget" value="500" min="100" step="50" />
+            <button class="num-btn" onclick="changeVal('budget', 50)">+</button>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <button class="btn-generate" id="generateBtn" onclick="generatePlan()">
+      Generer matplan
+    </button>
+
+    <!-- Resultat -->
+    <section class="card hidden" id="step-result">
+      <div id="proteinSummary"></div>
+      <div class="card-label">Ukens matplan</div>
+      <div id="planOutput"></div>
+      <div class="card-label" style="margin-top:2rem">Handleliste per butikk</div>
+      <div id="shoppingList"></div>
+      <div class="savings-banner" id="savingsBanner"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-logo">MatBørsen</span>
+    <span>Data fra <a href="https://kassal.app" target="_blank">Kassal.app</a></span>
+  </footer>
+
+  <!-- Paywall modal -->
+  <div class="paywall-overlay hidden" id="paywallOverlay">
+    <div class="paywall-modal">
+      <div class="paywall-top">
+        <div class="paywall-title">Abonner for å fortsette</div>
+        <p class="paywall-sub">Du har brukt din gratis generering. Velg en plan for å lage flere matplaner.</p>
+      </div>
+      <div class="paywall-plans">
+        <div class="paywall-plan">
+          <div class="pp-name">Månedlig</div>
+          <div class="pp-price"><strong>49</strong> kr/mnd</div>
+          <a href="landing.html#pris" class="pp-btn">Velg</a>
+        </div>
+        <div class="paywall-plan paywall-plan-featured">
+          <div class="pp-badge">Spar 189 kr</div>
+          <div class="pp-name">Årsplan</div>
+          <div class="pp-price"><strong>399</strong> kr/år</div>
+          <div class="pp-equiv">= 33,25 kr/mnd</div>
+          <a href="landing.html#pris" class="pp-btn pp-btn-featured">Velg</a>
+        </div>
+      </div>
+      <button class="paywall-dismiss" onclick="document.getElementById('paywallOverlay').classList.add('hidden')">Ikke nå</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -52,8 +52,7 @@ nav {
 .nav-logomark { width: 30px; height: 30px; border-radius: 7px; }
 
 .nav-links {
-  display: flex;
-  gap: 2rem;
+  display: none;
 }
 
 .nav-links a {
@@ -78,6 +77,85 @@ nav {
 }
 
 .nav-cta:hover { opacity: 0.8; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 210;
+  flex-shrink: 0;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+.hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--forest);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.75rem;
+  padding: 2rem 3rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menu-link {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.menu-link:hover { opacity: 0.7; }
+
+.menu-link-cta {
+  color: var(--lime);
+}
+
+body.menu-open { overflow: hidden; }
+
+@media (max-width: 900px) {
+  .menu-link { font-size: 1.8rem; }
+  .menu-overlay { padding: 2rem 1.5rem; align-items: flex-start; }
+}
 
 /* ── HERO ── */
 .hero {
@@ -318,6 +396,59 @@ nav {
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* ── OM OSS ── */
+.about-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 10rem 2.5rem 3rem;
+  text-align: center;
+}
+
+.about-h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  color: var(--dark);
+  margin: 1rem 0 1.5rem;
+}
+
+.about-lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.about-story {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem 7rem;
+}
+
+.about-story p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.about-signoff {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1.5px solid var(--border);
+  color: var(--muted) !important;
+}
+
+.about-signoff strong { color: var(--dark); }
+
+@media (max-width: 600px) {
+  .about-hero { padding: 7rem 1.5rem 2.5rem; }
+  .about-h1 { font-size: 2.1rem; }
+  .about-story { padding: 1.5rem 1.5rem 5rem; }
 }
 
 /* ── TICKER ── */

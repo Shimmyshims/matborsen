@@ -129,29 +129,6 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 
-// ── HAMBURGERMENY ──
-
-const hamburgerBtn = document.getElementById("hamburgerBtn");
-const menuOverlay = document.getElementById("menuOverlay");
-
-if (hamburgerBtn && menuOverlay) {
-  hamburgerBtn.addEventListener("click", () => {
-    const isOpen = menuOverlay.classList.toggle("open");
-    hamburgerBtn.classList.toggle("open", isOpen);
-    hamburgerBtn.setAttribute("aria-expanded", isOpen);
-    document.body.classList.toggle("menu-open", isOpen);
-  });
-
-  menuOverlay.querySelectorAll(".menu-link").forEach(link => {
-    link.addEventListener("click", () => {
-      menuOverlay.classList.remove("open");
-      hamburgerBtn.classList.remove("open");
-      hamburgerBtn.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
-    });
-  });
-}
-
 // ── VENTELISTE-FORM ──
 
 function handleWaitlistSubmit(e) {

@@ -3,167 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MatBørsen – Lag matplan</title>
+  <title>MatBørsen – Lanseres til studiestart</title>
+  <meta name="description" content="MatBørsen lager din ukentlige matplan basert på de billigste tilbudene i butikkene dine. Meld deg på ventelisten – vi lanserer til studiestart." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..900;1,14..32,400..900&family=Caveat:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <nav>
-    <a href="landing.html" class="nav-logo">
+    <a href="#" class="nav-logo">
       <img src="logo.svg" alt="MatBørsen logo" class="nav-logomark" />
       MatBørsen
     </a>
     <div class="nav-links">
-      <a href="landing.html#modi">Modi</a>
-      <a href="landing.html#hvordan">Hvordan det fungerer</a>
+      <a href="#hvordan">Hvordan</a>
+      <a href="#prisindeks">Prisindeks</a>
     </div>
-    <span class="nav-badge">Lag matplan</span>
+    <a href="#meld-pa" class="nav-cta">Meld deg på</a>
   </nav>
 
-  <div class="app-hero">
-    <div class="app-hero-inner">
-      <div class="app-hero-label">Matplanlegger</div>
-      <h1>Lag ukens matplan</h1>
-      <p>Velg butikker, sett mål og få en komplett matplan basert på ukens tilbud.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Lanseres til studiestart</div>
+      <h1>Aldri lur på<br/>hva du skal ha<br/>til middag.</h1>
+      <p class="hero-sub">MatBørsen lager en komplett matplan for hele uken — basert på tilbudene der du allerede handler. Én tur. Alt klart. Vi bygger den nå, og lanserer til studiestart.</p>
+
+      <form class="waitlist-form" id="waitlistForm" action="https://formspree.io/f/DITT_FORM_ID" method="POST">
+        <input type="email" name="email" class="waitlist-input" placeholder="din@epost.no" required />
+        <button type="submit" class="btn-primary waitlist-btn">Få beskjed når vi lanserer</button>
+      </form>
+      <p class="waitlist-note" id="waitlistNote">Ingen spam. Bare én e-post når vi går live.</p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="week-card">
+        <div class="wc-header">
+          <span class="wc-title">Ukens plan</span>
+          <span class="wc-store-row">
+            <img src="https://www.google.com/s2/favicons?sz=16&domain=rema.no" alt="Rema"/>
+            <img src="https://www.google.com/s2/favicons?sz=16&domain=kiwi.no" alt="Kiwi"/>
+            <span>2 butikker</span>
+          </span>
+        </div>
+        <div class="wc-days">
+          <div class="wc-day">
+            <span class="wc-dayname">Man</span>
+            <div class="wc-meals">
+              <span class="wc-meal wc-dinner">Pasta Bolognese</span>
+              <span class="wc-meal wc-lunch">Rester til lunsj</span>
+            </div>
+          </div>
+          <div class="wc-day">
+            <span class="wc-dayname">Tir</span>
+            <div class="wc-meals">
+              <span class="wc-meal wc-dinner">Kyllingwok</span>
+              <span class="wc-meal wc-lunch">Rester til lunsj</span>
+            </div>
+          </div>
+          <div class="wc-day">
+            <span class="wc-dayname">Ons</span>
+            <div class="wc-meals">
+              <span class="wc-meal wc-dinner">Linsesupe</span>
+              <span class="wc-meal wc-lunch">Brød med pålegg</span>
+            </div>
+          </div>
+          <div class="wc-day">
+            <span class="wc-dayname">Tor</span>
+            <div class="wc-meals">
+              <span class="wc-meal wc-dinner">Fiskegrateng</span>
+              <span class="wc-meal wc-lunch">Rester til lunsj</span>
+            </div>
+          </div>
+          <div class="wc-day">
+            <span class="wc-dayname">Fre</span>
+            <div class="wc-meals">
+              <span class="wc-meal wc-dinner">Taco</span>
+              <span class="wc-meal wc-lunch">Gresk salat</span>
+            </div>
+          </div>
+        </div>
+        <div class="wc-footer">
+          <span>Estimert sparing denne uken</span>
+          <strong>–94 kr</strong>
+        </div>
+      </div>
+
+      <div class="floating-tag">
+        <span class="ft-dot"></span>
+        Én handletur. Hele uken.
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Pasta 500g — 12 kr · Kiwi</span>
+      <span class="ticker-sep">·</span>
+      <span>Kyllingfilet 400g — 39 kr · Rema</span>
+      <span class="ticker-sep">·</span>
+      <span>Laksefilet 400g — 49 kr · Meny</span>
+      <span class="ticker-sep">·</span>
+      <span>Havregryn 1kg — 18 kr · Spar</span>
+      <span class="ticker-sep">·</span>
+      <span>Kjøttdeig 400g — 29 kr · Kiwi</span>
+      <span class="ticker-sep">·</span>
+      <span>Egg 12 stk — 34 kr · Rema</span>
+      <span class="ticker-sep">·</span>
+      <span>Tortilla 8 stk — 22 kr · Bunnpris</span>
+      <span class="ticker-sep">·</span>
+      <span>Pasta 500g — 12 kr · Kiwi</span>
+      <span class="ticker-sep">·</span>
+      <span>Kyllingfilet 400g — 39 kr · Rema</span>
+      <span class="ticker-sep">·</span>
+      <span>Laksefilet 400g — 49 kr · Meny</span>
+      <span class="ticker-sep">·</span>
+      <span>Havregryn 1kg — 18 kr · Spar</span>
+      <span class="ticker-sep">·</span>
+      <span>Kjøttdeig 400g — 29 kr · Kiwi</span>
     </div>
   </div>
 
-  <main>
-
-    <!-- Modus -->
-    <section class="card" id="step-mode">
-      <div class="card-label">Modus</div>
-      <div class="mode-toggle">
-        <button class="mode-btn active" id="modebudget" onclick="setMode('budget')">
-          <strong class="mode-label">Budsjett</strong>
-          <small class="mode-desc">Balansert og billigst mulig</small>
-        </button>
-        <button class="mode-btn" id="modeprotein" onclick="setMode('protein')">
-          <strong class="mode-label">Protein-fokus</strong>
-          <small class="mode-desc">Treff proteinmålet ditt</small>
-        </button>
+  <!-- PRICE INDEX (demo / under utvikling) -->
+  <section class="market-section" id="prisindeks">
+    <div class="market-inner">
+      <div class="market-text fade-up">
+        <div class="section-label" style="color:var(--muted)">Under utvikling</div>
+        <h2>Dette bygger vi<br/>akkurat nå.</h2>
+        <p>En motor som henter ukens tilbud fra alle store norske dagligvarekjeder og viser deg hva som faktisk er verdt å kjøpe. Eksempelet under viser hvordan det vil se ut.</p>
       </div>
-    </section>
+      <div class="market-chart fade-up fade-up-delay-1" id="landingPriceChart"></div>
+    </div>
+  </section>
 
-    <!-- Treningsprofil -->
-    <section class="card hidden" id="step-protein">
-      <div class="card-label">Treningsprofil</div>
-      <div class="prefs">
-        <label>
-          Kroppsvekt (kg)
-          <div class="num-input">
-            <button class="num-btn" onclick="changeVal('weight', -1)">−</button>
-            <input type="number" id="weight" value="75" min="40" max="200" />
-            <button class="num-btn" onclick="changeVal('weight', 1)">+</button>
-          </div>
-        </label>
-        <label>
-          Treningsnivå
-          <select id="trainingLevel">
-            <option value="light">Lett (1–2 dager/uke)</option>
-            <option value="moderate" selected>Moderat (3–4 dager/uke)</option>
-            <option value="heavy">Tung (5+ dager/uke)</option>
-          </select>
-        </label>
-        <label>
-          Mål
-          <select id="goal">
-            <option value="maintain">Vedlikeholde</option>
-            <option value="build" selected>Bygge muskler</option>
-            <option value="lose">Gå ned i vekt</option>
-          </select>
-        </label>
+  <!-- BENEFITS -->
+  <section class="benefits" id="hva-du-far">
+    <h2 class="benefits-heading fade-up">Én tur. Hele uken. Null stress.</h2>
+    <div class="benefits-inner">
+      <div class="benefit fade-up">
+        <div class="benefit-num">01</div>
+        <h3>Én handletur i uka</h3>
+        <p>Komplett plan for frokost, lunsj og middag alle dager. Alt du trenger på én liste — ingen ekstra turer.</p>
       </div>
-      <div class="protein-result hidden" id="proteinResult"></div>
-    </section>
-
-    <!-- Butikker -->
-    <section class="card" id="step-stores">
-      <div class="card-label">Butikker</div>
-      <p class="card-hint">Velg én eller flere – jo fler, jo billigere blir planen</p>
-      <div class="store-grid" id="storeGrid"></div>
-    </section>
-
-    <!-- Preferanser -->
-    <section class="card" id="step-prefs">
-      <div class="card-label">Tilpass</div>
-      <div class="prefs">
-        <label>
-          Antall personer
-          <div class="num-input">
-            <button class="num-btn" onclick="changeVal('persons', -1)">−</button>
-            <input type="number" id="persons" value="1" min="1" max="10" />
-            <button class="num-btn" onclick="changeVal('persons', 1)">+</button>
-          </div>
-        </label>
-        <label>
-          Middager per uke
-          <div class="num-input">
-            <button class="num-btn" onclick="changeVal('dinners', -1)">−</button>
-            <input type="number" id="dinners" value="5" min="1" max="7" />
-            <button class="num-btn" onclick="changeVal('dinners', 1)">+</button>
-          </div>
-        </label>
-        <label>
-          Maks budsjett (kr/uke)
-          <div class="num-input">
-            <button class="num-btn" onclick="changeVal('budget', -50)">−</button>
-            <input type="number" id="budget" value="500" min="100" step="50" />
-            <button class="num-btn" onclick="changeVal('budget', 50)">+</button>
-          </div>
-        </label>
+      <div class="benefit fade-up fade-up-delay-1">
+        <div class="benefit-num">02</div>
+        <h3>Aldri tenk på middag</h3>
+        <p>Du velger butikkene, vi velger middagene. Basert på hva som er billigst akkurat denne uken.</p>
       </div>
-    </section>
+      <div class="benefit fade-up fade-up-delay-2">
+        <div class="benefit-num">03</div>
+        <h3>Spar uten å ofre noe</h3>
+        <p>Rester fra middagen blir lunsjens beste venn. Ingenting kastes, alt utnyttes.</p>
+      </div>
+    </div>
+  </section>
 
-    <button class="btn-generate" id="generateBtn" onclick="generatePlan()">
-      Generer matplan
-    </button>
+  <!-- HOW -->
+  <section class="how" id="hvordan">
+    <div class="how-inner">
+      <div class="how-text fade-up">
+        <div class="section-label">Slik vil det fungere</div>
+        <h2>Tre valg.<br/>Én plan.</h2>
+        <p>Du forteller oss hvilke butikker du handler på og hva budsjettet er. Vi gjør resten.</p>
+      </div>
+      <div class="how-steps">
+        <div class="how-step fade-up fade-up-delay-1">
+          <div class="how-step-num">1</div>
+          <div>
+            <h3>Velg butikker</h3>
+            <p>Huk av hvilke butikker du kan handle på. Vi sammenligner tilbud mellom dem.</p>
+          </div>
+        </div>
+        <div class="how-step fade-up fade-up-delay-2">
+          <div class="how-step-num">2</div>
+          <div>
+            <h3>Sett budsjett</h3>
+            <p>Fortell oss hvor mange dere er og hva du vil bruke. Budsjett eller protein-fokus.</p>
+          </div>
+        </div>
+        <div class="how-step fade-up fade-up-delay-3">
+          <div class="how-step-num">3</div>
+          <div>
+            <h3>Handle én gang</h3>
+            <p>Komplett matplan og handleliste klar på sekunder. Én tur — hele uken dekket.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Resultat -->
-    <section class="card hidden" id="step-result">
-      <div id="proteinSummary"></div>
-      <div class="card-label">Ukens matplan</div>
-      <div id="planOutput"></div>
-      <div class="card-label" style="margin-top:2rem">Handleliste per butikk</div>
-      <div id="shoppingList"></div>
-      <div class="savings-banner" id="savingsBanner"></div>
-    </section>
-
-  </main>
+  <!-- CTA -->
+  <section class="cta" id="meld-pa">
+    <div class="cta-inner">
+      <div class="cta-label fade-up">Gratis å melde seg på · Ingen forpliktelser</div>
+      <h2 class="fade-up fade-up-delay-1">Vær blant de første<br/>til å prøve.</h2>
+      <form class="waitlist-form waitlist-form-cta fade-up fade-up-delay-2" id="waitlistFormCta" action="https://formspree.io/f/DITT_FORM_ID" method="POST">
+        <input type="email" name="email" class="waitlist-input" placeholder="din@epost.no" required />
+        <button type="submit" class="btn-primary btn-lg waitlist-btn">Meld meg på</button>
+      </form>
+    </div>
+  </section>
 
   <footer>
-    <span class="footer-logo">MatBørsen</span>
+    <a href="#" class="footer-logo">MatBørsen</a>
     <span>Data fra <a href="https://kassal.app" target="_blank">Kassal.app</a></span>
   </footer>
 
-  <!-- Paywall modal -->
-  <div class="paywall-overlay hidden" id="paywallOverlay">
-    <div class="paywall-modal">
-      <div class="paywall-top">
-        <div class="paywall-title">Abonner for å fortsette</div>
-        <p class="paywall-sub">Du har brukt din gratis generering. Velg en plan for å lage flere matplaner.</p>
-      </div>
-      <div class="paywall-plans">
-        <div class="paywall-plan">
-          <div class="pp-name">Månedlig</div>
-          <div class="pp-price"><strong>49</strong> kr/mnd</div>
-          <a href="landing.html#pris" class="pp-btn">Velg</a>
-        </div>
-        <div class="paywall-plan paywall-plan-featured">
-          <div class="pp-badge">Spar 189 kr</div>
-          <div class="pp-name">Årsplan</div>
-          <div class="pp-price"><strong>399</strong> kr/år</div>
-          <div class="pp-equiv">= 33,25 kr/mnd</div>
-          <a href="landing.html#pris" class="pp-btn pp-btn-featured">Velg</a>
-        </div>
-      </div>
-      <button class="paywall-dismiss" onclick="document.getElementById('paywallOverlay').classList.add('hidden')">Ikke nå</button>
-    </div>
-  </div>
-
   <script src="app.js"></script>
+
 </body>
 </html>

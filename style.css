@@ -208,57 +208,72 @@ nav {
 }
 
 .week-card {
-  background: white;
-  border: 1.5px solid var(--border);
-  border-radius: 20px;
-  padding: 1.5rem;
+  background: #1c1c1a;
+  border-radius: 18px;
+  padding: 1.75rem 1.5rem 1.5rem;
   width: 340px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.09);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+  position: relative;
+}
+
+.week-card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 10px;
+  pointer-events: none;
 }
 
 .wc-header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   margin-bottom: 1.25rem;
+  position: relative;
 }
 
 .wc-title {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Caveat", cursive;
   font-weight: 700;
-  font-size: 0.95rem;
-  color: var(--dark);
+  font-size: 2.1rem;
+  line-height: 1;
+  color: #f5f4ef;
+  margin-bottom: 0.4rem;
 }
 
 .wc-store-row {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.75rem;
-  color: var(--muted);
-  font-weight: 500;
+  font-size: 0.68rem;
+  color: rgba(245,244,239,0.5);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 .wc-store-row img { width: 14px; height: 14px; border-radius: 3px; }
 
-.wc-days { display: flex; flex-direction: column; gap: 0.15rem; }
+.wc-days { display: flex; flex-direction: column; gap: 0.15rem; position: relative; }
 
 .wc-day {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.55rem 0;
-  border-bottom: 1px solid #f5f5f3;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .wc-day:last-child { border-bottom: none; }
 
 .wc-dayname {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: var(--muted);
+  color: rgba(245,244,239,0.4);
   width: 2rem;
   flex-shrink: 0;
 }
@@ -273,8 +288,8 @@ nav {
   width: fit-content;
 }
 
-.wc-dinner { background: #f0fdf4; color: #15803d; }
-.wc-lunch { background: #fafaf8; color: var(--muted); font-weight: 500; font-size: 0.72rem; }
+.wc-dinner { background: rgba(170,238,68,0.14); color: #cdf08a; }
+.wc-lunch { background: rgba(255,255,255,0.06); color: rgba(245,244,239,0.55); font-weight: 500; font-size: 0.72rem; }
 
 .wc-footer {
   display: flex;
@@ -282,12 +297,13 @@ nav {
   align-items: center;
   padding-top: 1rem;
   margin-top: 0.75rem;
-  border-top: 1.5px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.14);
   font-size: 0.8rem;
-  color: var(--muted);
+  color: rgba(245,244,239,0.5);
+  position: relative;
 }
 
-.wc-footer strong { color: var(--forest); font-size: 0.9rem; font-weight: 800; }
+.wc-footer strong { color: var(--lime); font-size: 0.95rem; font-weight: 800; }
 
 .floating-tag {
   position: absolute;

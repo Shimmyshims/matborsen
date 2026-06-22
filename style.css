@@ -753,11 +753,15 @@ footer {
 }
 
 .footer-logo {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-weight: 800;
-  color: var(--dark);
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.footer-logo-img {
+  height: 22px;
+  width: auto;
+  display: block;
 }
 
 footer a { color: var(--green); text-decoration: none; }

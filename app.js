@@ -139,7 +139,7 @@ function handleWaitlistSubmit(e) {
   fetch(form.action, {
     method: "POST",
     body: data,
-    headers: { Accept: "application/json" },
+    mode: "no-cors",
   }).catch(() => {}); // fortsett uansett — vis suksess lokalt
 
   form.classList.add("submitted");
